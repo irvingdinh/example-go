@@ -5,8 +5,8 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/irvingdinh/example-go/internal/internal/component/logger"
-	"github.com/irvingdinh/example-go/internal/internal/model"
+	"github.com/irvingdinh/example-go/internal/component/logger"
+	"github.com/irvingdinh/example-go/internal/model"
 )
 
 type (

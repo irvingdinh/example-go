@@ -5,7 +5,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/irvingdinh/example-go/internal/internal/config"
+	"github.com/irvingdinh/example-go/internal/config"
 )
 
 const (

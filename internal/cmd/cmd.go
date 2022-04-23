@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/irvingdinh/example-go/internal/internal/config"
+	"github.com/irvingdinh/example-go/internal/config"
 )
 
 var rootCmd = &cobra.Command{

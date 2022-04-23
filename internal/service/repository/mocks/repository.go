@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	repository "github.com/irvingdinh/example-go/internal/internal/service/repository"
+	repository "github.com/irvingdinh/example-go/internal/service/repository"
 	mock "github.com/stretchr/testify/mock"
 )
 

@@ -6,8 +6,8 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"github.com/irvingdinh/example-go/internal/internal/component/logger"
-	"github.com/irvingdinh/example-go/internal/internal/config"
+	"github.com/irvingdinh/example-go/internal/component/logger"
+	"github.com/irvingdinh/example-go/internal/config"
 )
 
 func New() (*gorm.DB, error) {
