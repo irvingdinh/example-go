@@ -61,3 +61,13 @@ var _ = Describe("GetLoggingConfig", func() {
 		})
 	})
 })
+
+var _ = Describe("GetDatabaseConfig", func() {
+	It("should returns", func() {
+		viper.Set("database.dsn", "root:@tcp(127.0.0.1:3306)/example?charset=utf8mb4&parseTime=True&loc=Local")
+
+		Expect(GetDatabaseConfig()).To(Equal(DatabaseConfig{
+			Dsn: "root:@tcp(127.0.0.1:3306)/example?charset=utf8mb4&parseTime=True&loc=Local",
+		}))
+	})
+})

@@ -93,6 +93,16 @@ func GetLoggingConfig() LoggingConfig {
 	}
 }
 
+type DatabaseConfig struct {
+	Dsn string
+}
+
+func GetDatabaseConfig() DatabaseConfig {
+	return DatabaseConfig{
+		Dsn: viper.GetString("database.dsn"),
+	}
+}
+
 func AsMap() map[string]interface{} {
 	return map[string]interface{}{
 		"app":     GetAppConfig(),
