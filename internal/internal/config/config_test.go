@@ -8,9 +8,9 @@ import (
 )
 
 var _ = Describe("GetAppConfig", func() {
-	viper.Set("app.env", "local")
-
 	It("should returns", func() {
+		viper.Set("app.env", "local")
+
 		Expect(GetAppConfig()).To(Equal(AppConfig{
 			Env: "local",
 		}))
@@ -18,9 +18,9 @@ var _ = Describe("GetAppConfig", func() {
 })
 
 var _ = Describe("GetHTTPConfig", func() {
-	viper.Set("http.port", "8080")
-
 	It("should returns", func() {
+		viper.Set("http.port", "8080")
+
 		Expect(GetHTTPConfig()).To(Equal(HTTPConfig{
 			Port: 8080,
 		}))
@@ -29,9 +29,9 @@ var _ = Describe("GetHTTPConfig", func() {
 
 var _ = Describe("GetLoggingConfig", func() {
 	Context("local environment", func() {
-		viper.Set("app.env", "local")
-
 		It("should returns", func() {
+			viper.Set("app.env", "local")
+
 			Expect(GetLoggingConfig()).To(Equal(LoggingConfig{
 				Formatter: LoggingTextFormatter,
 				Level:     LoggingDebugLevel,
@@ -40,9 +40,9 @@ var _ = Describe("GetLoggingConfig", func() {
 	})
 
 	Context("staging environment", func() {
-		viper.Set("app.env", "staging")
-
 		It("should returns", func() {
+			viper.Set("app.env", "staging")
+
 			Expect(GetLoggingConfig()).To(Equal(LoggingConfig{
 				Formatter: LoggingJSONFormatter,
 				Level:     LoggingDebugLevel,
@@ -51,9 +51,9 @@ var _ = Describe("GetLoggingConfig", func() {
 	})
 
 	Context("production environment", func() {
-		viper.Set("app.env", "production")
-
 		It("should returns", func() {
+			viper.Set("app.env", "production")
+
 			Expect(GetLoggingConfig()).To(Equal(LoggingConfig{
 				Formatter: LoggingJSONFormatter,
 				Level:     LoggingInfoLevel,

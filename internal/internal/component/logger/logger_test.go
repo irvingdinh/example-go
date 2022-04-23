@@ -11,9 +11,9 @@ import (
 )
 
 var _ = Describe("Logger", func() {
-	viper.Set("app.env", "local")
-
 	It("should returns", func() {
+		viper.Set("app.env", "local")
+
 		ctxWithoutLog := context.TODO()
 
 		log := CToL(ctxWithoutLog, "test")
