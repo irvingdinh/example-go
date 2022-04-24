@@ -20,6 +20,7 @@ var rootCmd = &cobra.Command{
 func init() {
 	config.Load()
 
+	rootCmd.AddCommand(serveCmd)
 	rootCmd.AddCommand(configCmd)
 }
 

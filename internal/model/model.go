@@ -14,18 +14,9 @@ type Model struct {
 	DeletedAt gorm.DeletedAt
 }
 
-type M map[string]interface{}
+type Task struct {
+	Model
 
-func timeAsMapValue(input time.Time) string {
-	return input.Format(time.RFC3339)
-}
-
-func nullTimeAsMapValue(input gorm.DeletedAt) *string {
-	if !input.Valid {
-		return nil
-	}
-
-	inputAsString := input.Time.Format(time.RFC3339)
-
-	return &inputAsString
+	Summary     string
+	IsCompleted bool
 }
