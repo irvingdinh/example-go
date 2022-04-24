@@ -1,13 +1,16 @@
 package server
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/irvingdinh/example-go/internal/component/logger"
 	"github.com/irvingdinh/example-go/internal/config"
 	"github.com/irvingdinh/example-go/internal/http/handler"
+	"github.com/irvingdinh/example-go/internal/http/middleware"
 )
 
 type Server interface {
@@ -31,12 +34,21 @@ type serverImpl struct {
 }
 
 func (i *serverImpl) Start() error {
-	port := config.GetHTTPConfig().Port
-	return i.router.Run(fmt.Sprintf(":%d", port))
+	log := logger.CToL(context.Background(), "server.Start")
+	log.Infof("Listening and serving HTTP on :%d", config.GetHTTPConfig().Port)
+
+	return i.router.Run(fmt.Sprintf(":%d", config.GetHTTPConfig().Port))
 }
 
 func (i *serverImpl) withRouter() {
-	router := gin.Default()
+	if config.GetAppConfig().Env != "local" {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
+	router := gin.New()
+	router.Use(gin.Recovery())
+
+	router.Use(middleware.Logger())
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
