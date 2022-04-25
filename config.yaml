@@ -2,7 +2,7 @@
 # Create a new `config.override.yaml` to merge the config instead.
 
 app:
-  env: "local" # E.g. "local", "staging", "production".
+  env: local # E.g. local, staging, production.
 
 http:
   port: 8080
