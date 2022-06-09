@@ -61,5 +61,8 @@ func (i *serverImpl) withRouter() {
 	router.PATCH("/api/v1/tasks/:id/completed", i.handler.TaskHandler().MarkTaskAsCompleted)
 	router.DELETE("/api/v1/tasks/:id", i.handler.TaskHandler().DeleteTask)
 
+	// Static
+	router.Static("/docs", "public/docs")
+
 	i.router = router
 }

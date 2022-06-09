@@ -1,0 +1,10 @@
+openapi: 3.1.0
+info:
+  title: API
+  version: '1.0'
+  contact:
+    name: Irving Dinh
+    email: irving.dinh@gmail.com
+servers:
+  - url: 'http://localhost:8080'
+    description: Local
